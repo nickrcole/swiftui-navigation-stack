@@ -74,18 +74,14 @@ public struct NavigationStackView<Root>: View where Root: View {
     public var body: some View {
         let showRoot = navigationStack.currentView == nil
         let navigationType = navigationStack.navigationType
+        let stack = navigationStack.stack().getViews()
 
         return ZStack {
-            Group {
-                if showRoot {
-                    rootView
-                        .transition(navigationType == .push ? transitions.push : transitions.pop)
-                        .environmentObject(navigationStack)
-                } else {
-                    navigationStack.currentView!.wrappedElement
-                        .transition(navigationType == .push ? transitions.push : transitions.pop)
-                        .environmentObject(navigationStack)
-                }
+            ForEach(0..<stack.count, id: \.self) { i in
+                let view = stack[i]
+                view.wrappedElement
+                    .transition(navigationType == .push ? transitions.push : transitions.pop)
+                    .environmentObject(navigationStack)
             }
         }
     }

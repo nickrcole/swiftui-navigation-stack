@@ -1,5 +1,8 @@
 # swiftui-navigation-stack Changelog
 
+## 1.1.0
+- Presenting the entire view stack to the user to expose partial dismiss animations elegantly.
+
 ## 1.0.6
 - Fixed a bug that caused a wrong transition animation on iOS 16.
 

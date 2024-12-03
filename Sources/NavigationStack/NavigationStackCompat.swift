@@ -44,6 +44,10 @@ public class NavigationStackCompat: ObservableObject {
     public var depth: Int {
         viewStack.depth
     }
+    
+    public func stack() -> ViewStack {
+        return self.viewStack
+    }
 
     /// Returns a Boolean value indicating whether the stack contains a view with the specified ID.
     /// - Parameter id: The ID of the view to look for.
@@ -81,8 +85,12 @@ public class NavigationStackCompat: ObservableObject {
     }
 }
 
-private struct ViewStack {
+public struct ViewStack {
     private var views = [ViewElement]()
+    
+    public func getViews() -> [ViewElement] {
+        return self.views
+    }
 
     func peek() -> ViewElement? {
         views.last
@@ -123,11 +131,11 @@ private struct ViewStack {
     }
 }
 
-struct ViewElement: Identifiable, Equatable {
-    let id: String
-    let wrappedElement: AnyView
+public struct ViewElement: Identifiable, Equatable {
+    public let id: String
+    public let wrappedElement: AnyView
 
-    static func == (lhs: ViewElement, rhs: ViewElement) -> Bool {
+    public static func == (lhs: ViewElement, rhs: ViewElement) -> Bool {
         lhs.id == rhs.id
     }
 }
