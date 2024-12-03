@@ -7,11 +7,11 @@ Pod::Spec.new do |s|
   An alternative SwiftUI NavigationView implementing classic stack-based navigation giving also some more control on animations and programmatic navigation.
                        DESC
 
-  s.homepage         = 'https://github.com/matteopuc/swiftui-navigation-stack'
+  s.homepage         = 'https://github.com/nickrcole/swiftui-navigation-stack'
   
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Matteo Puccinelli' => 'matteo.puccinelli@gmail.com' }
-  s.source           = { :git => 'https://github.com/matteopuc/swiftui-navigation-stack.git', :tag => s.version.to_s }
+  s.author           = { 'Nicholas Cole' => 'me@nickcole.org' }
+  s.source           = { :git => 'https://github.com/nickrcole/swiftui-navigation-stack', :tag => s.version.to_s }
   
 
   s.ios.deployment_target = '13.0'
