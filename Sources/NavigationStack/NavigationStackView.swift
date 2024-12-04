@@ -77,6 +77,9 @@ public struct NavigationStackView<Root>: View where Root: View {
         let stack = navigationStack.stack().getViews()
 
         return ZStack {
+            rootView
+                .transition(navigationType == .push ? transitions.push : transitions.pop)
+                .environmentObject(navigationStack)
             ForEach(0..<stack.count, id: \.self) { i in
                 let view = stack[i]
                 view.wrappedElement
